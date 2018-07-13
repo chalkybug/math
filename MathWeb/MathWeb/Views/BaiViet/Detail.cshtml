@@ -1,0 +1,90 @@
+﻿@model MathWeb.Models.Data.BaiViet
+
+@{
+   
+    Layout = "~/Views/Layout/_Layout.cshtml";
+}
+
+@section content{ 
+  
+    <script>
+      var value=  $("#linkvideo").attr("src").replace("watch?v=", "embed/");
+      $("#linkvideo").attr("src", value);
+    </script>  
+
+<script>
+        var app = angular.module("myApp", []);
+
+        app.controller("myCtrl", function ($scope, $http) {
+            $http.get("/DeMucLop/getDeMucLop").then(function (response) {
+               
+                $scope.dsDeMucLop = response.data;
+              
+                angular.forEach(response.data, function (value, key) {
+                    angular.forEach(value, function (v1, k1) {//this is nested angular.forEach loop
+                        
+                        if (k1=="ID") {
+                            $scope.IdBaiviet = v1;
+                            console.log(v1);
+                        }
+                    });
+                  
+                });
+                
+            }).then(function () {
+
+                setTimeout(() => {    //<<<---    using ()=> syntax
+                    $scope.getBaiviet();
+                }, 100);
+
+            });
+
+            $scope.getBaiviet = function () {
+                $http.get("/BaiViet/GetBaiVietByBaiVietJson/" + $scope.IdBaiviet).then(function (response) {
+
+                    $scope.dsBaiViet = response.data;
+                });
+
+            }
+         
+
+           
+            // table control
+            $scope.orderbyme = function (x) {
+                $scope.myOrderBy = x;
+            }
+        });
+</script>
+    
+  }
+<div class="container-fluid"  style="min-height:400px" ng-app="myApp" ng-controller="myCtrl">
+    <div class="row">
+        <div class="col-md-2">
+            <ul id="left-bar">
+                <h5>Danh Sách Chương</h5>
+                <li style="list-style: none" ng-repeat="x in dsDeMucLop | orderBy:myOrderBy | filter : search">
+                    <a class='dropdown-item' href="/BaiViet/Show/{{x.ID}}">{{x.TenDeMuc}}</a>
+                </li>
+                <h5>Danh Sách Bài Viết</h5>
+                <li style="list-style: none" ng-repeat="x in dsBaiViet | orderBy:myOrderBy | filter : search">
+                    <a class='dropdown-item' href="/BaiViet/Detail/{{x.ID}}">{{x.TenBaiViet}}</a>
+                </li>
+
+            </ul>
+        </div>
+        <div class="col-md-10 text-center">
+            <h3>@ViewBag.TenBaiViet</h3>
+
+
+                <iframe id="linkvideo" width="720" height="480" src="@ViewBag.LinkBaiViet" frameborder="0"allowfullscreen></iframe>
+            
+
+
+        </div>
+    </div>
+
+
+    <div class="row">
+
+    </div>
+</div>

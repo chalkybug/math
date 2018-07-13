@@ -1,0 +1,62 @@
+﻿@model IEnumerable<MathWeb.Models.Data.BaiViet>
+
+@{
+    ViewBag.Title = "Show";
+    Layout = "~/Views/Layout/_Layout.cshtml";
+}
+
+
+@section content{
+
+    <script>
+        var app = angular.module("myApp", []);
+
+        app.controller("myCtrl", function ($scope, $http) {
+            $http.get("/DeMucLop/getDeMucLop").then(function (response) {
+                $scope.dsDeMucLop = response.data;
+            });
+
+            // table control
+            $scope.orderbyme = function (x) {
+                $scope.myOrderBy = x;
+            }
+        });
+    </script>
+
+}
+
+
+<div class="container-fluid" style="min-height:400px" ng-app="myApp" ng-controller="myCtrl">
+    <div class="row">
+        <div class="col-md-2">
+
+            <ul id="left-bar">
+                <li style="list-style: none" ng-repeat="x in dsDeMucLop | orderBy:myOrderBy | filter : search">
+                    <a class='dropdown-item' href="/BaiViet/Show/{{x.ID}}">{{x.TenDeMuc}}</a>
+                </li>
+
+            </ul>
+
+        </div>
+        <div class="col-md-10 text-center">
+
+            <h2>@ViewBag.TenDeMuc</h2>
+
+            <div class="col-md-6">
+                <ul>
+                    @foreach (var item in Model)
+                    {
+                        <li style="list-style: none"  >
+                            <a href="/BaiViet/Detail/@item.ID">@Html.DisplayFor(modelItem => item.TenBaiViet)</a>
+
+                        </li>
+                        
+                    }
+                </ul>
+            </div>
+
+
+        </div>
+    </div>
+
+</div>

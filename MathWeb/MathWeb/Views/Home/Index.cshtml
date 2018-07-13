@@ -1,0 +1,214 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Layout/_Layout.cshtml";
+}
+
+@section content{ 
+
+    <script>
+        $.ajax({
+            url: '/DeMucLop/getDeMucLop',
+            type: 'GET',
+            dataType: "json",
+            success: function (data) {
+                //called when successful
+
+                data.forEach(element => {
+
+                    $("#lop" + element.IDLop + "").append("<a class='dropdown-item' href='/BaiViet/Show/" + element.ID + "'>" + element.TenDeMuc + "</a>");
+                    
+                });
+
+
+            },
+            error: function (e) {
+                //called when there is an error
+                //console.log(e.message);
+            }
+
+        });
+    </script>
+
+}
+   <!--carsouse-->
+<div id="carouselId" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#carouselId" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselId" data-slide-to="1"></li>
+        <li data-target="#carouselId" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        <div class="carousel-item active text-center">
+            <img src="~/Content/image/banner1.jpg" width="1200" height="480" alt="First slide">
+            <div class="carousel-caption d-none d-md-block">
+                <h3>Môn Toán</h3>
+                <p>Con bạn đang gặp khó khăn với môn toán</p>
+            </div>
+        </div>
+        <div class="carousel-item text-center">
+            <img src="~/Content/image/banner2.jpg" width="1200" height="480" alt="Second slide">
+            <div class="carousel-caption d-none d-md-block">
+                <h3>Toán cho trẻ nhỏ</h3>
+                <p>Chúng tôi giáo dục môn Toán cho mọi lứa tuổi</p>
+            </div>
+        </div>
+        <div class="carousel-item text-center">
+            <img src="~/Content/image/banner3.jpg" width="1200" height="480" alt="Third slide">
+            <div class="carousel-caption d-none d-md-block">
+                <h3>Title</h3>
+                <p>Description</p>
+            </div>
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselId" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselId" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+<!-- comment-->
+<!-- chất lượng đầu ra-->
+<div class="container trustly">
+    <div class="row">
+        <div class="col-md-5">
+            <img class="float-right" src="~/Content/image/book.png" width="290" height="391" alt="book">
+        </div>
+        <div class="col-md-7">
+            <p class="widget-content" lp-node="p">
+
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 32 32"
+                         fill="rgba(76,175,80,1)">
+                        <path d="M16 3C8.8 3 3 8.8 3 16s5.8 13 13 13 13-5.8 13-13c0-1.4-.188-2.794-.688-4.094L26.688 13.5c.2.8.313 1.6.313 2.5 0 6.1-4.9 11-11 11S5 22.1 5 16 9.9 5 16 5c3 0 5.694 1.194 7.594 3.094L25 6.688C22.7 4.388 19.5 3 16 3zm11.28 4.28L16 18.563l-4.28-4.28-1.44 1.437 5 5 .72.686.72-.687 12-12-1.44-1.44z"></path>
+                    </svg>
+                </span>5,000 học sinh MẤT GỐC lấy lại kiến thức căn bản sau 1-2 tháng
+                <br>
+                <br>
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 32 32"
+                         fill="rgba(76,175,80,1)">
+                        <path d="M16 3C8.8 3 3 8.8 3 16s5.8 13 13 13 13-5.8 13-13c0-1.4-.188-2.794-.688-4.094L26.688 13.5c.2.8.313 1.6.313 2.5 0 6.1-4.9 11-11 11S5 22.1 5 16 9.9 5 16 5c3 0 5.694 1.194 7.594 3.094L25 6.688C22.7 4.388 19.5 3 16 3zm11.28 4.28L16 18.563l-4.28-4.28-1.44 1.437 5 5 .72.686.72-.687 12-12-1.44-1.44z"></path>
+                    </svg>
+                </span> 86,3% học sinh đạt điểm giỏi môn toán và chinh phục các trường THCS, THPT chuyên, TOP đầu
+                <br>
+                <br>&nbsp;
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 32 32"
+                         fill="rgba(76,175,80,1)">
+                        <path d="M16 3C8.8 3 3 8.8 3 16s5.8 13 13 13 13-5.8 13-13c0-1.4-.188-2.794-.688-4.094L26.688 13.5c.2.8.313 1.6.313 2.5 0 6.1-4.9 11-11 11S5 22.1 5 16 9.9 5 16 5c3 0 5.694 1.194 7.594 3.094L25 6.688C22.7 4.388 19.5 3 16 3zm11.28 4.28L16 18.563l-4.28-4.28-1.44 1.437 5 5 .72.686.72-.687 12-12-1.44-1.44z"></path>
+                    </svg>
+                </span>Yêu thích, hăng say học Toán tự giác, coi học Toán như một niềm vui
+                <br>
+                <br>
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 32 32"
+                         fill="rgba(76,175,80,1)">
+                        <path d="M16 3C8.8 3 3 8.8 3 16s5.8 13 13 13 13-5.8 13-13c0-1.4-.188-2.794-.688-4.094L26.688 13.5c.2.8.313 1.6.313 2.5 0 6.1-4.9 11-11 11S5 22.1 5 16 9.9 5 16 5c3 0 5.694 1.194 7.594 3.094L25 6.688C22.7 4.388 19.5 3 16 3zm11.28 4.28L16 18.563l-4.28-4.28-1.44 1.437 5 5 .72.686.72-.687 12-12-1.44-1.44z"></path>
+                    </svg>
+                </span>HƠN 90% PHỤ HUYNH HÀI LÒNG KHI CON TIẾN BỘ NHANH SAU 2-3 THÁNG TẠI UNIX. NHANH TAY ĐĂNG KÝ ĐỂ NHẬN ƯU
+                ĐÃI LỚN NHẤT!&nbsp; &nbsp; &nbsp;&nbsp;
+            </p>
+
+        </div>
+    </div>
+</div>
+
+<!-- review-->
+<div class="container-fluid text-center bg-grey">
+    <h2>Dạy toán cho mọi lứa tuổi</h2>
+    <h4 style="padding:30px">Chúng tôi có đội ngũ giao viên tận tâm với nghề đáp ứng được mọi nhu cầu dạy và học</h4>
+    <div class="row text-center">
+        <div class="col-sm-4">
+            <div class="thumbnail">
+                <img src="~/Content/image/hoc1.jpg" alt="Paris">
+                <p>
+                    <strong>THPT</strong>
+                </p>
+                <p>Chuẩn bị thi đại học</p>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="thumbnail">
+                <img src="~/Content/image/hoc2.jpg" alt="New York">
+                <p>
+                    <strong>THCS</strong>
+                </p>
+                <p>Chuẩn bị thi chuyển cấp</p>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="thumbnail">
+                <img src="~/Content/image/hoc2.jpg" alt="San Francisco">
+                <p>
+                    <strong>Tiểu học</strong>
+                </p>
+                <p>Rèn luyện kỹ năng học toán ngay từ nhỏ</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- cảm nhận của phụ huynh-->
+<div class="container review">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card text-center" style="width:300px">
+                <h5 class="card-title">Mai Nhung - Phụ huynh em Thế Anh</h5>
+                <h5 class="card-title">Lớp 6 trường Amsterdam</h5>
+                <img class="mx-auto card-img-top rounded-circle" src="~/Content/image/chandung1.jpg" alt="Card image" style="width:150px;height:150px ">
+                <div class="card-body">
+                    <hr>
+
+                    <p class="card-text">
+                        "Tôi rất hài lòng về chất lượng giảng dạy của Trung tâm Unix. Con trai tôi đã có rất nhiều tiến bộ
+                        sau khi học ở đây.Cháu luôn tự giác học bài mà tôi không còn phải nhắc nhở như trước nữa.Kết
+                        quả học môn Toán của cháu tiến bộ rất nhanh, mới đầu cháu chỉ đứng thứ 8 ở lớp, sau 3 tháng cháu
+                        đã vươn lên đứng nhất lớp về Toán. Hy vọng rằng con tôi sẽ chinh phục Toán thành công."
+                    </p>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-center" style="width:300px">
+                <h5 class="card-title">Cao Thanh - Phụ huynh em Yến Chi</h5>
+                <h5 class="card-title">Lớp 8 trường THCS Chu Văn An</h5>
+                <img class="mx-auto card-img-top rounded-circle" src="~/Content/image/chandung2.jpg" alt="Card image" style="width:150px;height:150px ">
+                <div class="card-body">
+                    <hr>
+
+                    <p class="card-text">
+                        "Cảm ơn Trung tâm rất nhiều vì đã giúp con tôi học tốt Toán và được chọn vào đội tuyển HSG của trường.
+                        Con tôi luôn được thầy cô giáo đánh giá thông minh và lanh lợi, hơn nữa đi thi lại đạt giải nhất
+                        cấp quận về môn Toán, đứng trong top 10 gương mặt học sinh tiêu biểu của trường. Chúc Trung tâm
+                        ngày càng phát triển hơn nữa."
+                    </p>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-center" style="width:300px">
+                <h5 class="card-title">Hoàng Nam - Phụ huynh em Bảo Ngọc</h5>
+                <h5 class="card-title">Lớp 5 trường Marie Curie</h5>
+                <img class="mx-auto card-img-top rounded-circle" src="~/Content/image/chandung3.jpg" alt="Card image" style="width:150px;height:150px ">
+                <div class="card-body">
+                    <hr>
+
+                    <p class="card-text">
+                        "Vợ chồng tôi rất vui mừng vì con gái mình đã tìm được tình yêu và đam mê cho môn Toán. Chúng tôi
+                        không phải tốn nhiều thời gian để chỉ bảo con học Toán nhiều như trước kia nữa. Con luôn tự giác
+                        học bài và kết quả học tập môn Toán của con cũng rất cao khi đứng đầu lớp về Toán. Con gái tôi
+                        đã tự tin và cởi mở hơn rất nhiều sau khóa học. Cảm ơn Trung tâm. "
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
