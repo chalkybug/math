@@ -140,6 +140,7 @@
     <Content Include="Views\DeMucLop\GetBaiViet.cshtml" />
     <Content Include="Views\BaiViet\Detail.cshtml" />
     <Content Include="Views\BaiViet\Show.cshtml" />
+    <Content Include="Views\DeMucLop\Search.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

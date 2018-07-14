@@ -1,9 +1,10 @@
-﻿@model IEnumerable<MathWeb.Models.Data.BaiViet>
-
+﻿
 @{
-    ViewBag.Title = "Show";
+    ViewBag.Title = "Search";
     Layout = "~/Views/Layout/_Layout.cshtml";
 }
+
+
 
 
 @section content{
@@ -70,19 +71,56 @@
 
             <h2 style="padding:30px;margin:10px;">@ViewBag.TenDeMuc</h2>
 
-            <div class="col-md-6">
-                <ul>
-                    
-                    @foreach (var item in Model)
-                    {
-                        <li style="list-style: none">
-                            <a href="/BaiViet/Detail/@item.ID">@Html.DisplayFor(modelItem => item.TenBaiViet)</a>
 
-                        </li>
+            <h2 class="text-center"> Kết quả tìm kiếm</h2>
+            <br />
+            <div class="row">
+                <div class="col-md-2">
 
-                    }
-                </ul>
+                </div>
+                <div class="col-md-offset-4">
+                    <h3>Các Chương Tìm Kiếm</h3>
+
+                    <ul>
+
+                        @foreach (var item in ViewBag.DeMucLop)
+                        {
+                            <li style="list-style: none">
+                                <a href="/BaiViet/Show/@item.ID">@item.TenDeMuc</a>
+                            </li>
+
+                        }
+
+                    </ul>
+
+                </div>
+
+
             </div>
+            <div class="row">
+                <div class="col-md-2">
+
+                </div>
+                <div class="col-md-offset-4">
+                    <h3>Các Bài Tìm Kiếm</h3>
+
+                    <ul>
+
+                        @foreach (var item in ViewBag.BaiViet)
+                         {
+                            <li style="list-style: none">
+                                <a href="/BaiViet/Detail/@item.ID">@item.TenBaiViet</a>
+                            </li>
+
+                        }
+
+                    </ul>
+                </div>
+
+
+
+            </div>
+
 
 
 
@@ -91,7 +129,7 @@
 
 </div>
 <style>
-    #left-bar > li >a:hover {
+    #left-bar > li > a:hover {
         color: white;
         background: #38903a;
     }

@@ -1,6 +1,8 @@
-﻿using MathWeb.Models.Data;
+﻿using MathWeb.Models;
+using MathWeb.Models.Data;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -22,6 +24,8 @@ namespace MathWeb.Controllers
 
         public ActionResult Detail(int id)
         {
+            
+
             var baivet = db.BaiViets.Where(x => x.ID == id).FirstOrDefault() ;
 
             ViewBag.TenBaiViet = baivet.TenBaiViet;

@@ -42,9 +42,9 @@
                 <div class="link-contact"></div>
             </div>
             <div class="col-md-3">
-                <form class="form-inline my-2 my-lg-0 from-search">
-                    <input class="form-control mr-sm-2" type="text" placeholder="Search">
-                    <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+                <form class="form-inline my-2 my-lg-0 from-search" action="/DeMucLop/Search" method="post">
+                    <input name="query" class="form-control mr-sm-2" type="text" placeholder="Tìm Kiếm">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form>
             </div>
 
@@ -55,7 +55,7 @@
     </div>
     <!-- navbar-->
 
-    <nav class="navbar navbar-expand-md navbar-light bg-danger sticky-top ">
+    <nav style="background-color:#38903a" class="navbar navbar-expand-md navbar-light sticky-top ">
    
         <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
                 aria-expanded="false" aria-label="Toggle navigation"></button>
@@ -63,7 +63,7 @@
             <ul class="navbar-nav mr-auto ml-auto mt-2 mt-lg-0">
                 <!--lớp 1-->
                 <li class="nav-item" >
-                    <a class="mr-auto navbar-brand" href="#">
+                    <a class="mr-auto navbar-brand" href="/Home">
                         <img width="30px" height="30px" src="~/Content/image/icon.png" />
                     </a>
                 </li>
@@ -71,96 +71,84 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Lớp 1</a>
                     <div id="lop1" class="dropdown-menu" aria-labelledby="dropdownId">
-                        <a class="dropdown-item" href="./index1.html">Action 1</a>
-                        <a class="dropdown-item" href="#">Action 2</a>
+                       
                     </div>
                 </li>
                 <!-- lớp 2-->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Lớp 2</a>
                     <div id="lop2" class="dropdown-menu" aria-labelledby="dropdownId">
-                        <a class="dropdown-item" href="#">Action 1</a>
-                        <a class="dropdown-item" href="#">Action 2</a>
+                        
                     </div>
                 </li>
                 <!-- lớp 3-->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Lớp 3</a>
                     <div id="lop3" class="dropdown-menu" aria-labelledby="dropdownId">
-                        <a class="dropdown-item" href="#">Action 1</a>
-                        <a class="dropdown-item" href="#">Action 2</a>
+                      
                     </div>
                 </li>
                 <!-- lớp 4-->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Lớp 4</a>
                     <div id="lop4" class="dropdown-menu" aria-labelledby="dropdownId">
-                        <a class="dropdown-item" href="#">Action 1</a>
-                        <a class="dropdown-item" href="#">Action 2</a>
+                        
                     </div>
                 </li>
                 <!-- lớp 5-->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Lớp 5</a>
                     <div id="lop5" class="dropdown-menu" aria-labelledby="dropdownId">
-                        <a class="dropdown-item" href="#">Action 1</a>
-                        <a class="dropdown-item" href="#">Action 2</a>
+                    
                     </div>
                 </li>
                 <!-- lớp 6-->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Lớp 6</a>
                     <div id="lop6" class="dropdown-menu" aria-labelledby="dropdownId">
-                        <a class="dropdown-item" href="#">Action 1</a>
-                        <a class="dropdown-item" href="#">Action 2</a>
+                       
                     </div>
                 </li>
                 <!-- lớp 7-->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Lớp 7</a>
                     <div id="lop7" class="dropdown-menu" aria-labelledby="dropdownId">
-                        <a class="dropdown-item" href="#">Action 1</a>
-                        <a class="dropdown-item" href="#">Action 2</a>
+                        
                     </div>
                 </li>
                 <!-- lớp 8-->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Lớp 8</a>
                     <div id="lop8" class="dropdown-menu" aria-labelledby="dropdownId">
-                        <a class="dropdown-item" href="#">Action 1</a>
-                        <a class="dropdown-item" href="#">Action 2</a>
+                        
                     </div>
                 </li>
                 <!-- lớp 9-->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Lớp 9</a>
                     <div id="lop9" class="dropdown-menu" aria-labelledby="dropdownId">
-                        <a class="dropdown-item" href="#">Action 1</a>
-                        <a class="dropdown-item" href="#">Action 2</a>
+                        
                     </div>
                 </li>
                 <!-- lớp 10-->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Lớp 10</a>
                     <div id="lop10" class="dropdown-menu" aria-labelledby="dropdownId">
-                        <a class="dropdown-item" href="#">Action 1</a>
-                        <a class="dropdown-item" href="#">Action 2</a>
+                       
                     </div>
                 </li>
                 <!-- lớp 11-->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Lớp 11</a>
                     <div id="lop11" class="dropdown-menu" aria-labelledby="dropdownId">
-                        <a class="dropdown-item" href="#">Action 1</a>
-                        <a class="dropdown-item" href="#">Action 2</a>
+                        
                     </div>
                 </li>
                 <!-- lớp 12-->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Lớp 12</a>
                     <div id="lop12" class="dropdown-menu" aria-labelledby="dropdownId">
-                        <a class="dropdown-item" href="#">Action 1</a>
-                        <a class="dropdown-item" href="#">Action 2</a>
+                       
                     </div>
                 </li>
 
@@ -225,6 +213,12 @@
     </div>
 
 </body>
+
 @RenderSection("content",required:false)
 
 </html>
+<style>
+    #collapsibleNavId > ul > li {
+        margin: 0 10px;
+    }
+</style>

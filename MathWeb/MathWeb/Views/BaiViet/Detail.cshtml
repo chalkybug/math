@@ -1,36 +1,58 @@
 ﻿@model MathWeb.Models.Data.BaiViet
 
 @{
-   
+
     Layout = "~/Views/Layout/_Layout.cshtml";
 }
 
-@section content{ 
-  
-    <script>
-      var value=  $("#linkvideo").attr("src").replace("watch?v=", "embed/");
-      $("#linkvideo").attr("src", value);
-    </script>  
+@section content{
 
 <script>
+        $.ajax({
+            url: '/DeMucLop/getDeMucLop',
+            type: 'GET',
+            dataType: "json",
+            success: function (data) {
+                //called when successful
+
+                data.forEach(element => {
+
+                    $("#lop" + element.IDLop + "").append("<a class='dropdown-item' href='/BaiViet/Show/" + element.ID + "'>" + element.TenDeMuc + "</a>");
+
+                });
+
+            },
+            error: function (e) {
+
+            }
+
+        });
+</script>
+
+    <script>
+        var value = $("#linkvideo").attr("src").replace("watch?v=", "embed/");
+        $("#linkvideo").attr("src", value);
+    </script>
+
+    <script>
         var app = angular.module("myApp", []);
 
         app.controller("myCtrl", function ($scope, $http) {
             $http.get("/DeMucLop/getDeMucLop").then(function (response) {
-               
+
                 $scope.dsDeMucLop = response.data;
-              
+
                 angular.forEach(response.data, function (value, key) {
                     angular.forEach(value, function (v1, k1) {//this is nested angular.forEach loop
-                        
-                        if (k1=="ID") {
+
+                        if (k1 == "ID") {
                             $scope.IdBaiviet = v1;
                             console.log(v1);
                         }
                     });
-                  
+
                 });
-                
+
             }).then(function () {
 
                 setTimeout(() => {    //<<<---    using ()=> syntax
@@ -46,18 +68,18 @@
                 });
 
             }
-         
 
-           
+
+
             // table control
             $scope.orderbyme = function (x) {
                 $scope.myOrderBy = x;
             }
         });
-</script>
-    
-  }
-<div class="container-fluid"  style="min-height:400px" ng-app="myApp" ng-controller="myCtrl">
+    </script>
+
+}
+<div class="container-fluid" style="min-height:400px" ng-app="myApp" ng-controller="myCtrl">
     <div class="row">
         <div class="col-md-2">
             <ul id="left-bar">
@@ -72,15 +94,46 @@
 
             </ul>
         </div>
-        <div class="col-md-10 text-center">
-            <h3>@ViewBag.TenBaiViet</h3>
+        <div class="col-md-10">
+            <div class="text-center">
+                <h3 style="padding:30px;margin:10px;">@ViewBag.TenBaiViet</h3>
 
+                <iframe id="linkvideo" width="720" height="480" src="@ViewBag.LinkBaiViet" frameborder="0" allowfullscreen></iframe>
+            </div>
 
-                <iframe id="linkvideo" width="720" height="480" src="@ViewBag.LinkBaiViet" frameborder="0"allowfullscreen></iframe>
-            
-
+            <div style="padding:30px;margin:10px;" id="content">
+                
+                <p style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Chương 1: Chia ph&acirc;n số</span></p>
+                <p>&nbsp;</p>
+                <p style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><strong><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">B&agrave;i tập 1: Cho 2 chữ số c&oacute; 1 chữ số v&agrave; điền v&agrave;o chỗ trống</span></strong></p>
+                <p>&nbsp;</p>
+                <p style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt; text-align: center;"><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Center</span></p>
+                <p><br /><br /></p>
+                <p style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 11pt; font-family: Arial; color: #ff0000; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">this is color</span></p>
+            </div>
 
         </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10">
+                  
+                   
+                        
+                    
+
+                </div>
+                <div class="col-md-offset-2">
+                    
+                   
+                  
+
+                </div>
+
+            </div>
+
+        </div>
+
     </div>
 
 
@@ -88,3 +141,10 @@
 
     </div>
 </div>
+<style>
+    #left-bar > li > a:hover {
+        color: white;
+        background: #38903a;
+    }
+</style>
+

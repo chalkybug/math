@@ -16,6 +16,21 @@ namespace MathWeb.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult Search(FormCollection f)
+        {
+           string name = f["query"].ToString();
+           ViewBag.DeMucLop = (from x in db.DeMucLops
+                      where x.TenDeMuc.Contains(name)
+                      select x).ToList();
+
+            ViewBag.BaiViet = (from x in db.BaiViets
+                                where x.TenBaiViet.Contains(name)
+                                select x).ToList();
+
+            return View();
+        }
+
         
         public JsonResult getDeMucLop()
         {
