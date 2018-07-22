@@ -18,6 +18,8 @@ namespace MathWeb.Controllers
         {
             var baivets = db.BaiViets.Where(x => x.IDDeMuc == id).ToList();
             ViewBag.TenDeMuc = db.DeMucLops.Where(x => x.ID == id).FirstOrDefault().TenDeMuc;
+            ViewBag.IDDeMuc = db.DeMucLops.Where(x => x.ID == id).FirstOrDefault().ID;
+            ViewBag.IDLop = db.DeMucLops.Where(x => x.ID == id).FirstOrDefault().IDLop;
 
             return View(baivets);
         }
@@ -30,6 +32,10 @@ namespace MathWeb.Controllers
 
             ViewBag.TenBaiViet = baivet.TenBaiViet;
             ViewBag.LinkBaiViet = baivet.LinkVideo;
+
+
+            ViewBag.ID = baivet.ID+"";
+
             return View(baivet);
         }
 

@@ -130,6 +130,7 @@
     <Compile Include="Models\Data\PhanQuyen.cs" />
     <Compile Include="Models\Data\TaiKhoan.cs" />
     <Compile Include="Models\Data\ThongBao.cs" />
+    <Compile Include="Models\ReadDataBaiViet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -141,6 +142,7 @@
     <Content Include="Views\BaiViet\Detail.cshtml" />
     <Content Include="Views\BaiViet\Show.cshtml" />
     <Content Include="Views\DeMucLop\Search.cshtml" />
+    <Content Include="Views\Partial\id6.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

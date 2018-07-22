@@ -7,7 +7,7 @@
 
 @section content{
 
-<script>
+    <script>
         $.ajax({
             url: '/DeMucLop/getDeMucLop',
             type: 'GET',
@@ -27,7 +27,9 @@
             }
 
         });
-</script>
+
+   
+    </script>
 
     <script>
         var value = $("#linkvideo").attr("src").replace("watch?v=", "embed/");
@@ -81,7 +83,7 @@
 }
 <div class="container-fluid" style="min-height:400px" ng-app="myApp" ng-controller="myCtrl">
     <div class="row">
-        <div class="col-md-2">
+        <div class="col-md-2" style="overflow:auto;height:1300px;">
             <ul id="left-bar">
                 <h5>Danh Sách Chương</h5>
                 <li style="list-style: none" ng-repeat="x in dsDeMucLop | orderBy:myOrderBy | filter : search">
@@ -94,45 +96,42 @@
 
             </ul>
         </div>
-        <div class="col-md-10">
+        <div class="col-md-8">
             <div class="text-center">
                 <h3 style="padding:30px;margin:10px;">@ViewBag.TenBaiViet</h3>
 
                 <iframe id="linkvideo" width="720" height="480" src="@ViewBag.LinkBaiViet" frameborder="0" allowfullscreen></iframe>
             </div>
 
-            <div style="padding:30px;margin:10px;" id="content">
-                
-                <p style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Chương 1: Chia ph&acirc;n số</span></p>
-                <p>&nbsp;</p>
-                <p style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><strong><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">B&agrave;i tập 1: Cho 2 chữ số c&oacute; 1 chữ số v&agrave; điền v&agrave;o chỗ trống</span></strong></p>
-                <p>&nbsp;</p>
-                <p style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt; text-align: center;"><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Center</span></p>
-                <p><br /><br /></p>
-                <p style="line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 11pt; font-family: Arial; color: #ff0000; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">this is color</span></p>
-            </div>
-
-        </div>
-
-        <div class="container">
-            <div class="row">
-                <div class="col-md-10">
-                  
-                   
-                        
-                    
-
-                </div>
-                <div class="col-md-offset-2">
-                    
-                   
-                  
-
-                </div>
+            <div style="padding:30px;margin:10px;overflow:auto;height:600px;" id="content">
+                @{ 
+                    var path = "~/Views/Partial/id"+(String)ViewBag.ID+ ".cshtml" ;
+                   @Html.Partial(path);
+                }
+               
 
             </div>
 
+            <!-- navigate-->
+            <hr>
+            <div class="row text-center">
+                <div class="col-md-6">
+                    <a class="btn btn-success" style="background-color:#ffa81e;color: white;border:none !important">
+                        <span class="fa fa-angle-left"></span>
+                        Trang Trước
+                    </a>
+                </div>
+                <div class="col-md-6">
+                    <a class="btn btn-success" style="background-color:#ffa81e;color: white;border:none !important">
+
+                        Trang Sau
+                        <span class="fa fa-angle-right"></span>
+                    </a>
+                </div>
+            </div>
         </div>
+
+      
 
     </div>
 

@@ -43,5 +43,55 @@ namespace MathWeb.Controllers
             });
             return Json(demuclop, JsonRequestBehavior.AllowGet);
         }
+
+
+        public JsonResult Navigate(string id,string navigate)
+        {
+            int iddemuc = int.Parse(id);
+            DeMucLop result = null;
+            if (navigate=="back")
+            {
+                try
+                {
+                     result = db.DeMucLops.Where(x => x.ID == iddemuc - 1).FirstOrDefault();
+                    if (result==null)
+                    {
+                        result = db.DeMucLops.Where(x => x.ID == iddemuc).FirstOrDefault();
+                    }
+                  
+                }
+                catch 
+                {
+                     result = db.DeMucLops.Where(x => x.ID == iddemuc).FirstOrDefault();
+
+                }
+            }
+            else
+            {
+                try
+                {
+                    result = db.DeMucLops.Where(x => x.ID == iddemuc + 1).FirstOrDefault();
+                    if (result == null)
+                    {
+                        result = db.DeMucLops.Where(x => x.ID == iddemuc).FirstOrDefault();
+                    }
+
+                }
+                catch
+                {
+                     result = db.DeMucLops.Where(x => x.ID == iddemuc).FirstOrDefault();
+
+                }
+            }
+
+            //id= ViewBag.IDDeMuc
+           
+
+            return Json(new {
+                ID=result.ID,
+                IDLop = result.IDLop,
+                TenDeMuc=result.TenDeMuc
+            }, JsonRequestBehavior.AllowGet);
+        }
     }
 }

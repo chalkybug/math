@@ -19,9 +19,8 @@ nav-item dropdown:hover ,dropdown-menu{
 .bg-grey{
     background-color:#f6f6f6;
     
-    padding: 70px 100px !important;
+    padding: 30px 100px 0 100px !important;
 
-   
 }
 .bg-black{
     padding: 20px 0 0 0;

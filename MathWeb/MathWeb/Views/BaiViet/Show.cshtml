@@ -21,6 +21,8 @@
 
                     $("#lop" + element.IDLop + "").append("<a class='dropdown-item' href='/BaiViet/Show/" + element.ID + "'>" + element.TenDeMuc + "</a>");
 
+                    if(element.IDLop==@ViewBag.IDLop)
+                         $("#left-bar").append(`<li style='list-style: none'><a class='dropdown-item' href='/BaiViet/Show/${element.ID}'>${element.TenDeMuc}</a> </li>`);
                 });
 
             },
@@ -29,6 +31,41 @@
             }
 
         });
+
+        // load back next
+        // ViewBag.IDDeMuc
+
+        $.ajax({
+            url: `/DeMucLop/Navigate?id=${@ViewBag.IDDeMuc}&navigate=next`,
+            type: 'GET',
+            dataType: "json",
+            success: function (data) {
+
+                $("#next").attr("href","/BaiViet/Show/"+data.ID)
+            },
+            error: function (e) {
+
+            }
+
+        });
+
+        $.ajax({
+            url: `/DeMucLop/Navigate?id=${@ViewBag.IDDeMuc}&navigate=back`,
+            type: 'GET',
+            dataType: "json",
+            success: function (data) {
+
+                $("#back").attr("href","/BaiViet/Show/"+data.ID)
+            },
+            error: function (e) {
+
+            }
+
+        });
+
+
+
+
     </script>
 
     <script>
@@ -51,28 +88,36 @@
 
 <div class="container-fluid" style="min-height:400px" ng-app="myApp" ng-controller="myCtrl">
     <div class="row">
-        <div class="col-md-2" style="overflow:auto">
+        <div class="col-md-2" style="overflow:auto;height:600px;">
 
             <ul id="left-bar">
                 <li style="list-style: none">
                     <h5 style="padding:10px;">Mục Lục Chương</h5>
 
                 </li>
-                <li style="list-style: none" ng-repeat="x in dsDeMucLop | orderBy:myOrderBy | filter : search">
-                    <a class='dropdown-item' href="/BaiViet/Show/{{x.ID}}">{{x.TenDeMuc}}</a>
 
-                </li>
 
             </ul>
 
         </div>
-        <div class="col-md-10 text-center">
+        <div class="col-md-8 text-center">
 
             <h2 style="padding:30px;margin:10px;">@ViewBag.TenDeMuc</h2>
 
-            <div class="col-md-6">
+            <hr>
+
+            <!-- description-->
+
+            <div>
+                <p>
+                    Để học tốt môn Tin học cấp 2 ,cấp 3, dưới đây là mục lục các loạt bài Giải bài tập Tin học lớp 6, 7,
+                    8, 9, 10, 11, 12 sách giáo khoa và sách bài tập giúp bạn học tốt môn Tin học THCS và THPT hơn.
+                </p>
+            </div>
+
+            <div class="col-md-6" style="min-height: 300px">
                 <ul>
-                    
+
                     @foreach (var item in Model)
                     {
                         <li style="list-style: none">
@@ -83,6 +128,23 @@
                     }
                 </ul>
             </div>
+            <!-- navigate-->
+            <hr>
+            <div class="row">
+                <div class="col-md-6">
+                    <a id="back" href="" class="btn btn-success" style="background-color:#ffa81e;color: white;border:none !important">
+                        <span class="fa fa-angle-left"></span>
+                        Trang Trước
+                    </a>
+                </div>
+                <div class="col-md-6">
+                    <a id="next" href="" class="btn btn-success" style="background-color:#ffa81e;color: white;border:none !important">
+
+                        Trang Sau
+                        <span class="fa fa-angle-right"></span>
+                    </a>
+                </div>
+            </div>
 
 
 
@@ -91,7 +153,7 @@
 
 </div>
 <style>
-    #left-bar > li >a:hover {
+    #left-bar > li > a:hover {
         color: white;
         background: #38903a;
     }
